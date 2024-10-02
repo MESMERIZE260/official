@@ -5530,13 +5530,9 @@ text-align: center;
 
 
 
-.divblog{background-color:white;width:2000;
-  display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-padding-left:270px;
-}
 
-.pula{background-color:whitesmoke;width: 270px;
+
+.pula{background-color:whitesmoke;width:270px;
 height: 800px;
 ;margin-top:30px;
 border-style: solid;border-width:1px;border-radius: 15px;
@@ -5545,16 +5541,18 @@ border-style: solid;border-width:1px;border-radius: 15px;
 .par1{text-align: center;
 font-family:'Times New Roman', Times, serif;
 font-size: 30px;
-margin-top: 20px;}
+margin-top: 20px;
+width: 100%;}
 
 
 .sub1{text-align: center;font-family: 'Times New Roman', Times, serif;}
 .par1a{font-size: 38px;}
 
 .bani{text-align: center;margin-top:10px;font-size: 50px;color:#ddccb0;
-  font-family:'Times New Roman', Times, serif;
+  font-family:'Times New Roman', Times, serif;width: 100%;
 }
-.sub2{line-height:35px ;text-align: center;font-family: 'Times New Roman', Times, serif;}
+.sub2{line-height:35px ;text-align: center;font-family: 'Times New Roman', Times, serif;
+width: 100%;}
 
 
 .sugm{padding-top: 1900px;}
@@ -5573,7 +5571,7 @@ cursor:pointer;}
 
 .wownow{width: 450px;text-align:center;padding-bottom: 65px;padding-top: 30px;padding-right:80px;padding-left: 46px;}
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 600px) {
   .wownow{
     width: 100%;padding-bottom:0px;padding-top:35px;padding-right:0px;padding-left:0px
 
@@ -5606,80 +5604,117 @@ background-color:whitesmoke;
 .secretu{padding-top: 83px;}
 
 .pula1{
-  background-color:whitesmoke;width: 270px;
-height: 500px;
+  background-color:whitesmoke;max-width: 100%;
+  max-height: 600px;
 ;margin-top:30px;
 border-style: solid;border-width:1px;border-radius: 15px;
+justify-content: center;
 }
 
-.pula2{background-color:whitesmoke;width: 270px;
-  height: 600px;
+.pula2{background-color:whitesmoke;max-width: 100%;
+  max-height: 600px;
   ;margin-top:30px;
   border-style: solid;border-width:1px;border-radius: 15px;
 
 }
-.pula3{background-color:whitesmoke;width: 270px;
-  height: 670px;
+.pula3{background-color:whitesmoke;max-width: 100%;
+  max-height: 600px
   ;margin-top:30px;
   border-style: solid;border-width:1px;border-radius: 15px}
 
   .pintil{padding-bottom: 50px;}
 
-  @media only screen and (max-width: 390px) {
-    .divblog{
-      padding-left:60px; } }
+  
  
       
 
       
 
-    .itemframe{width:600px;text-align: center;
-    font-family:'Times New Roman', Times, serif;color: gray;}
+    /* Styling for individual items */
+.itemframe {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: gray;
+  width: 32%; /* Default width for desktop view (3 items in a row) */
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* Optional: Background color */
+  border: 1px solid #ddd; /* Optional: Border for separation */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  margin-bottom: 20px; /* Space between cards */
+}
 
-    .gridu{display: flex;
-      justify-content:space-around;
-      align-items: center;
-      
-      
-    }
+/* Styling for the container */
+.gridu {
+  display: flex;
+  justify-content: space-between; /* Space between items on larger screens */
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px; /* Space between items */
+}
 
-    .totu{padding-bottom: 50px;padding-top: 60px;
-    border-style: solid;
-  border-color: black;border-width: 1px;margin-top: 7px;margin-bottom:7px;}
+/* Container styling */
+.totu {
+  padding-bottom: 50px;
+  padding-top: 60px;
+  border: 1px solid black;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
 
-    .pestext{font-size: 20px;}
+/* Text styling */
+.pestext {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 
-    @media only screen and (max-width: 390px) {
-      .gridu{
-        display: block;
+/* Adjusting image size */
+.itemframe img {
+  width: 100%; /* Make images take up full width of their container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Match image corners to card corners */
+  object-fit: cover; /* Ensures images don't stretch */
+}
 
-        
-        
-        
-         }
-        
-        }
+/* Responsive adjustments for mobile screens */
+@media only screen and (max-width: 600px) {
+  .gridu {
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+  }
 
-        @media only screen and (max-width: 390px) {
-          .itemframe{
-            width: 100%;
-            padding-top: 23px;
-            
-             }
-            
-            }
+  .itemframe {
+      width: 95%; /* Make the item take up 95% of the screen on mobile */
+      padding-top: 15px;
+  }
+
+  img.itemframe {
+      width: 100%; /* Ensure images also take full width on mobile */
+      height: auto;
+  }
+}
+
+/* Adjustments for medium-sized screens (e.g., tablets) */
+@media only screen and (max-width: 1024px) {
+  .itemframe {
+      width: 48%; /* Two items per row on medium screens */
+  }
+}
+
 
             .pestext2{font-size: 22px;text-align: center;font-weight: bold;text-align: center;line-height:25px;
-            width:600px;margin-left: 670px;padding-bottom: 20px;font-family: 'Times New Roman', Times, serif;}
+            width:100%;padding-bottom: 20px;font-family: 'Times New Roman', Times, serif;}
 
-            .texts{font-family: 'Times New Roman', Times, serif;width: 800px;margin-left: 550px;text-align: center;
+            .texts{font-family: 'Times New Roman', Times, serif;max-width: 100%;text-align: center;
             line-height: 30px;}
     
 .dubidubi{padding-top: 100px;border-style: solid;border-width: 1px;}
 
 .intregtext{border-style: solid;border-width: 1px;border-top:1px;padding-bottom: 7px;border-bottom: 1px;}
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 600px) {
   .dubidubi{
     width: 100%;
     
@@ -5688,7 +5723,7 @@ border-style: solid;border-width:1px;border-radius: 15px;
     
     }
 
-    @media only screen and (max-width: 390px) {
+    @media only screen and (max-width: 600px) {
       .pestext2{
         margin-left:0px;
         width:100%;
@@ -5698,7 +5733,7 @@ border-style: solid;border-width:1px;border-radius: 15px;
         
         }
 
-        @media only screen and (max-width: 390px) {
+        @media only screen and (max-width: 600px) {
           .texts{
             margin-left: 0px;
             width: 100%;text-align: center;
@@ -5719,3 +5754,65 @@ border-style: solid;border-width:1px;border-radius: 15px;
             }
 
             .bg-img{clip: rect(0, 100px, 200px, 0)}
+
+            .div1{width: 100%;}
+
+            
+            .divblog {
+              display: grid;
+              grid-template-columns: repeat(1, 1fr); /* Default: 1 column */
+              gap: 20px;
+              margin: 20px 0;
+          }
+          
+          /* For larger screens (tablets and desktops) */
+          @media (min-width: 768px) {
+              .divblog {
+                  grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+              }
+          }
+          
+          @media (min-width: 1024px) {
+              .divblog {
+                  grid-template-columns: repeat(3, 1fr); /* 3 columns for large screens */
+              }
+          }
+          
+          /* Styling individual cards for better presentation */
+          .pula1, .pula2, .pula3 {
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              padding: 20px;
+              background-color: #f9f9f9;
+              transition: transform 0.3s ease;
+          }
+          
+          .pula1:hover, .pula2:hover, .pula3:hover {
+              transform: scale(1.05);
+          }
+          
+          /* Additional styling for text */
+          .par1 {
+              font-size: 1.5em;
+              font-weight: bold;
+          }
+          
+          .bani {
+              font-size: 1.2em;
+              color: #333;
+          }
+          
+          .sub2 {
+              color: #666;
+          }
+          
+
+                      @media only screen and (max-width: 1024px) {
+                        .itemframe {
+                            width: 100%;
+                        }
+                    }
+                    
+
+                    .oprea{text-transform: lowercase !important;}
+                 
